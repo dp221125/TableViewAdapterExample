@@ -23,6 +23,7 @@ class TableViewAdapter<T: Item>: NSObject, UITableViewDataSource, UITableViewDel
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ExampleCell.self), for: indexPath) as? ExampleCell else {
+            fatalError()
             return UITableViewCell()
         }
 

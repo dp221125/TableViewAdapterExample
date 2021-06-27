@@ -41,6 +41,7 @@ struct ViewMapper {
         return UITableView().then {
             let render = TableViewRender(data: Job.allCases)
             let adapter = TableViewAdapter(render: render)
+            $0.register(ExampleCell.self, forCellReuseIdentifier: String(describing: ExampleCell.self))
             $0.dataSource = adapter
             $0.delegate = adapter
             
