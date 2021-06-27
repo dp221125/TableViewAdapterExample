@@ -62,9 +62,3 @@ enum Job: String, Item, CaseIterable {
         self.rawValue
     }
 }
-
-/*
- then {
-
- }
- */
