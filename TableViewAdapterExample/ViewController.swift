@@ -37,16 +37,15 @@ class ViewController: UIViewController {
 
 struct ViewMapper {
     
-    func mapTableView() -> UITableView {
-        return UITableView().then {
-            let render = TableViewRender(data: Job.allCases)
-            let adapter = TableViewAdapter(render: render)
-            $0.register(ExampleCell.self, forCellReuseIdentifier: String(describing: ExampleCell.self))
-            $0.dataSource = adapter
-            $0.delegate = adapter
-            
-            $0.reloadData()
-        }
+    lazy var render = TableViewRender(data: Job.allCases)
+    lazy var adapter = TableViewAdapter(render: render)
+    
+    mutating func mapTableView() -> UITableView {
+        let tableView = UITableView()
+        tableView.register(ExampleCell.self, forCellReuseIdentifier: String(describing: ExampleCell.self))
+        tableView.dataSource = adapter
+        tableView.delegate = adapter
+        return tableView
     }
 }
 
@@ -63,3 +62,9 @@ enum Job: String, Item, CaseIterable {
         self.rawValue
     }
 }
+
+/*
+ then {
+
+ }
+ */
