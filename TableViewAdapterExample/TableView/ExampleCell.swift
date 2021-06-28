@@ -37,10 +37,7 @@ class ExampleCell: BaseTableViewCell {
         super.setupConstraints()
         
         nameLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(8)
-            $0.leading.equalToSuperview().offset(16)
-            $0.trailing.equalToSuperview().offset(-16)
-            $0.bottom.equalToSuperview().offset(-8)
+            $0.edges.equalToSuperview().inset(16)
         }
     }
 

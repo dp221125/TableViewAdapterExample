@@ -5,6 +5,7 @@
 //  Created by seokho on 2021/06/28.
 //
 
+import UIKit
 import RxSwift
 import RxCocoa
 
@@ -37,9 +38,7 @@ struct TableViewRender<T: Item> {
         return false
     }
 
-    init(data: [T], lastSeleted: T? = nil) {
+    init(data: [T]) {
         self.data = data
-        self.lastSeleted = lastSeleted
     }
 }
-

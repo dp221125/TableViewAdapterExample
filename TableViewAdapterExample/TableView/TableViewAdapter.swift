@@ -23,7 +23,6 @@ class TableViewAdapter<T: Item>: NSObject, UITableViewDataSource, UITableViewDel
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ExampleCell.self), for: indexPath) as? ExampleCell else {
-            fatalError()
             return UITableViewCell()
         }
 
@@ -31,16 +30,13 @@ class TableViewAdapter<T: Item>: NSObject, UITableViewDataSource, UITableViewDel
         return cell
     }
 
-    func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         if let seletedData = render.getItem(indexPath.row) {
             render.selected.onNext(seletedData)
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
-    }
-
     deinit {
         Swift.print("날라간다.")
     }
